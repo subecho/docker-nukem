@@ -2,10 +2,7 @@ module github.com/subecho/docker-nukem/v2
 
 go 1.18
 
-require (
-	github.com/docker/docker v20.10.16+incompatible
-	github.com/moby/moby v20.10.16+incompatible
-)
+require github.com/docker/docker v20.10.16+incompatible
 
 require (
 	github.com/Microsoft/go-winio v0.5.2 // indirect

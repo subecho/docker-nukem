@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/docker/docker/api/types"
-	"github.com/moby/moby/client"
+	"github.com/docker/docker/client"
 )
 
 func main() {
@@ -19,6 +19,9 @@ func main() {
 	}
 
 	for _, container := range containers {
-		fmt.Printf("%s %s\n", container.ID[:10], container.Image)
+		err := cli.ContainerKill(context.Background(), container.ID, "SIGKILL")
+		if err != nil {
+			fmt.Errorf("could not kill container with ID %s", container.ID)
+		}
 	}
 }
